@@ -1,0 +1,23 @@
+.navbar1 {
+    display: flex;
+}
+
+nav a.router-link-active {
+    color: #106cc8;
+}
+
+nav a {
+    color: #8f8f8f;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 48px;
+    margin-right: 20px;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}

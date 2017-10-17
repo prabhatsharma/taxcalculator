@@ -1,0 +1,79 @@
+<div>
+  <h1>Capital Gains Tax</h1>
+  <br>
+  <hr>
+  <div>
+    <div class="row">
+      <div class="col-md-6">
+        <span>Long Term Capital Gains</span>
+        <form [formGroup]="longTermTaxForm">
+          <mat-card>
+            <div class="row">
+              <div class="col-md-12">
+                <mat-form-field>
+                  <mat-select placeholder="Year Of Purchase" formControlName="yearOfPurchase" matTooltip="Year in which the property was purchased"
+                    (change)="calculate(longTermTaxForm)" required>
+                    <mat-option *ngFor="let year of years" [value]="year.value">
+                      {{year.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput formControlName="purchasePrice" placeholder="Purchase Price" matTooltip="Purchase price of Property"
+                    (keyup)="calculate(longTermTaxForm)" required>
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput formControlName="otherPurchaseCosts" placeholder="Other purchase costs" matTooltip="Costs associated with purchase. e.g. Brokerage, Registration charges, etc"
+                    (keyup)="calculate(longTermTaxForm)" required>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <mat-form-field>
+                  <mat-select placeholder="Year Of Sale" formControlName="yearOfSale" matTooltip="Year in which the property was sold" (change)="calculate(longTermTaxForm)"
+                    required>
+                    <mat-option *ngFor="let year of years" [value]="year.value">
+                      {{year.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput formControlName="saleAmount" placeholder="Sale amount" matTooltip="Sale price of property"
+                    (keyup)="calculate(longTermTaxForm)" required>
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="number" matInput formControlName="otherSaleCosts" placeholder="Other sales costs" matTooltip="Costs associated with sale. e.g. Brokerage, Property improvment costs, etc"
+                    (keyup)="calculate(longTermTaxForm)" required>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <mat-card>
+                  <div class="row">
+                    <div class="col-md-4">Indexed Cost of Acquisition</div>
+                    <div class="col-md-4">Capital Gains</div>
+                    <div class="col-md-4">Capital Gains Tax</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">{{indxedCostOfAcquisition|number}} </div>
+                    <div class="col-md-4">{{capitalGains|number}} </div>
+                    <div class="col-md-4"><b>{{capitalGainsTax|number}}</b> </div>
+                  </div>
+                </mat-card>
+              </div>
+            </div>
+          </mat-card>
+        </form>
+      </div>
+      <!-- <div class="col-md-6">
+        <mat-card>
+          indxedCostOfAcquisition: {{indxedCostOfAcquisition}}
+        </mat-card>
+      </div> -->
+    </div>
+  </div>
+  <hr>
+  <br>
+</div>

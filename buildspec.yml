@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install
+      - npm install -g @angular/cli
+  pre_build:
+    commands:
+      - echo nothing to pre-build
+  build:
+    commands:
+      - ng build --environment=ml --target=production
+  post_build:
+    commands:
+      - zip -r dist.zip dist
+artifacts:
+  files:
+    - dist.zip
