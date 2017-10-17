@@ -59,9 +59,27 @@
                   <div class="row">
                     <div class="col-md-4">{{indxedCostOfAcquisition|number}} </div>
                     <div class="col-md-4">{{capitalGains|number}} </div>
-                    <div class="col-md-4"><b>{{capitalGainsTax|number}}</b> </div>
+                    <div class="col-md-4">
+                      <b>{{capitalGainsTax|number}}</b>
+                    </div>
                   </div>
                 </mat-card>
+
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <pre>
+Formula:
+  Capital Gains Tax = Capital Gains x 20%
+  Capital Gains = Sale Amount - Indexed Cost of Acquisition
+
+                                CII of Year of Sale 
+  Indexed Cost of Acquisition = ------------------------ x (Purchase Price + Other Purchase Costs)
+                                CII of Year of Purchase 
+
+  Cost Inflation Index (CII) has been used from: <a href="https://www.incometaxindia.gov.in/Pages/utilities/Cost-Inflation-Index.aspx">Income Tax Website</a>
+                  </pre>
+                </div>
               </div>
             </div>
           </mat-card>
