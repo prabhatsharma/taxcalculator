@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
     { value: '2016–17', viewValue: '2016–17', indexation: 1125 },
   ];
 
-  indxedCostOfAcquisition: number;
+  indexedCostOfAcquisition: number;
   capitalGains: number;
   capitalGainsTax: number;
 
@@ -73,9 +73,9 @@ export class HomeComponent implements OnInit {
       const totalPurchasePrice = taxForm.value['purchasePrice'] + taxForm.value['otherPurchaseCosts'];
       const purchaseYearIndex = this.getIndexation(taxForm.value['yearOfPurchase']);
       const saleYearIndex = this.getIndexation(taxForm.value['yearOfSale']);
-      this.indxedCostOfAcquisition = saleYearIndex / purchaseYearIndex * totalPurchasePrice;
-      this.capitalGains = taxForm.value['saleAmount'] - this.indxedCostOfAcquisition;
-      this.capitalGainsTax = this.capitalGains * 0.2;
+      this.indexedCostOfAcquisition = Math.round(saleYearIndex / purchaseYearIndex * totalPurchasePrice);
+      this.capitalGains = Math.round(taxForm.value['saleAmount'] - this.indexedCostOfAcquisition);
+      this.capitalGainsTax = Math.round(this.capitalGains * 0.2);
     }
   }
 
